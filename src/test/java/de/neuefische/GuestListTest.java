@@ -111,7 +111,9 @@ class GuestListTest {
         GuestList guestList = new GuestList();
 
         File file = Paths.get("guests.txt").toFile();
-        file.delete();
+        if (file.exists()) {
+            file.delete();
+        }
 
         try {
         String actual = guestList.readFromGuestList();
